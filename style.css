@@ -1,0 +1,1061 @@
+
+/* ==========================================================================
+   CSS Variables & Resets
+   ========================================================================== */
+   :root {
+    /* Color Palette */
+    --primary-color: #f8f5f0; /* Cream background */
+    --secondary-color: #e5d9c5; /* Soft beige/gold accent */
+    --text-dark: #333333; /* Soft black for main text */
+    --text-light: #7a7a7a; /* Muted text */
+    --accent-gold: #c5a880; /* Elegant gold */
+    --white: #ffffff;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+    
+    /* Transition */
+    --transition-smooth: all 0.4s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typography & Utilities
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.names-script {
+    font-family: var(--font-script);
+    font-size: 4rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+.bg-light {
+    background-color: var(--white);
+}
+
+.secondary-bg {
+    background-color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--accent-gold);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-gold);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-gold);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: transparent;
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--text-dark);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.separator {
+    margin: 20px auto;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.separator::before, .separator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-gold);
+}
+
+.separator::before {
+    right: 150%;
+}
+.separator::after {
+    left: 150%;
+}
+
+.section-title p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Placeholder background image - ideally replacing with an aesthetic wedding photo */
+    background: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(248, 245, 240, 0.7); /* Creamy white semi-transparent overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    maxWidth: 800px;
+}
+
+.hero .subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.hero .names {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero .date, .hero .location {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.bible-verse {
+    margin: 40px auto;
+    max-width: 600px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 20px 0;
+}
+
+.bible-verse p {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.bible-verse span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    letter-spacing: 2px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+/* ==========================================================================
+   Invitation Section & Countdown
+   ========================================================================== */
+.invitation {
+    text-align: center;
+    background-color: var(--primary-color);
+}
+
+.invite-content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: var(--white);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.countdown-item span {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.countdown-item p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: var(--text-light);
+    margin-bottom: 0;
+    font-style: normal;
+}
+
+.wedding-live {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Details Section
+   ========================================================================== */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.detail-card {
+    text-align: center;
+    padding: 50px 30px;
+    background: var(--primary-color);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+}
+
+.detail-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    border-color: rgba(197, 168, 128, 0.3);
+}
+
+.detail-card .icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+}
+
+.detail-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.detail-card .time {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.detail-card .venue {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.detail-card .address {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Map & RSVP Section
+   ========================================================================== */
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer {
+    padding: 80px 0 30px;
+}
+
+.footer h2 {
+    color: var(--text-dark);
+}
+
+.footer p {
+    margin-bottom: 30px;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    margin-top: 80px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    font-style: normal;
+    font-family: var(--font-body);
+    margin-bottom: 0;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-up.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-left {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-left.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-right {
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-right.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .names {
+        font-size: 3.5rem !important;
+    }
+    
+    .countdown-container {
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .countdown-item span {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-item p {
+        font-size: 0.7rem;
+    }
+
+    .bible-verse p {
+        font-size: 1rem;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .names {
+        font-size: 2.8rem !important;
+    }
+    
+    .hero .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .countdown-container {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .countdown-item span {
+        font-size: 1.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+=======
+/* ==========================================================================
+   CSS Variables & Resets
+   ========================================================================== */
+   :root {
+    /* Color Palette */
+    --primary-color: #f8f5f0; /* Cream background */
+    --secondary-color: #e5d9c5; /* Soft beige/gold accent */
+    --text-dark: #333333; /* Soft black for main text */
+    --text-light: #7a7a7a; /* Muted text */
+    --accent-gold: #c5a880; /* Elegant gold */
+    --white: #ffffff;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+    
+    /* Transition */
+    --transition-smooth: all 0.4s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typography & Utilities
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.names-script {
+    font-family: var(--font-script);
+    font-size: 4rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+.bg-light {
+    background-color: var(--white);
+}
+
+.secondary-bg {
+    background-color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--accent-gold);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--accent-gold);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-gold);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: transparent;
+    color: var(--text-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid var(--text-dark);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-dark);
+    color: var(--white);
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.separator {
+    margin: 20px auto;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.separator::before, .separator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-gold);
+}
+
+.separator::before {
+    right: 150%;
+}
+.separator::after {
+    left: 150%;
+}
+
+.section-title p {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Add image as background layer */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url('image2.jpeg') center center / cover no-repeat;
+
+    z-index: 0;
+}
+
+/* Overlay */
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 245, 240, 0.7);
+    z-index: 1;
+}
+
+/* Content stays on top */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.hero .subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.hero .names {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero .date, .hero .location {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.bible-verse {
+    margin: 40px auto;
+    max-width: 600px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 20px 0;
+}
+
+.bible-verse p {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.bible-verse span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    letter-spacing: 2px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator a {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+/* ==========================================================================
+   Invitation Section & Countdown
+   ========================================================================== */
+.invitation {
+    text-align: center;
+    background-color: var(--primary-color);
+}
+
+.invite-content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-style: italic;
+    font-family: var(--font-heading);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: var(--white);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.countdown-item span {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.countdown-item p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+    color: var(--text-light);
+    margin-bottom: 0;
+    font-style: normal;
+}
+
+.wedding-live {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   Details Section
+   ========================================================================== */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.detail-card {
+    text-align: center;
+    padding: 50px 30px;
+    background: var(--primary-color);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+}
+
+.detail-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    border-color: rgba(197, 168, 128, 0.3);
+}
+
+.detail-card .icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+}
+
+.detail-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.detail-card .time {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.detail-card .venue {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.detail-card .address {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Map & RSVP Section
+   ========================================================================== */
+.map-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footer {
+    padding: 80px 0 30px;
+}
+
+.footer h2 {
+    color: var(--text-dark);
+}
+
+.footer p {
+    margin-bottom: 30px;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    margin-top: 80px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    font-style: normal;
+    font-family: var(--font-body);
+    margin-bottom: 0;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
+
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-up.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-left {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-left.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-right {
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.slide-right.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .names {
+        font-size: 3.5rem !important;
+    }
+    
+    .countdown-container {
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .countdown-item span {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-item p {
+        font-size: 0.7rem;
+    }
+
+    .bible-verse p {
+        font-size: 1rem;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .names {
+        font-size: 2.8rem !important;
+    }
+    
+    .hero .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .countdown-container {
+        gap: 10px;
+    }
+    
+    .countdown-item {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .countdown-item span {
+        font-size: 1.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
